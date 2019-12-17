@@ -1,0 +1,42 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                          controllers.HomeController.index
+
+GET     /user                      controllers.UserController.getUsers
+GET     /usersFriends/:id          controllers.UserController.getUsersFriends(id: Long)
+GET     /usersFriendsIds/:id       controllers.UserController.getUsersFriendsIds(id: Long)
+
+GET     /user/:id                  controllers.UserController.getUser(id: Long)
+GET     /users2                    controllers.UserController.getUsers2
+#GET    /test                      controllers.UserController.testUser
+POST    /addFriend                 controllers.UserController.addFriend
+POST    /removeFriend              controllers.UserController.removeFriend
+
+
+POST    /register                  controllers.LoginController.register
+POST    /login                     controllers.LoginController.login
+
+
+
+POST    /post                      controllers.PostController.addPost
+POST    /editpost                  controllers.PostController.editPost
+
+DELETE    /post/:id                controllers.PostController.deletePost(id: Long)
+
+GET     /posts                     controllers.PostController.getPosts
+GET     /likedposts/:id            controllers.PostController.getUsersLikedPosts(id: Long)
+
+GET     /usersPosts/:userId        controllers.PostController.getUsersPosts(userId: Long)
+GET     /usersFriendsPosts/:userId controllers.PostController.getUsersFriendsPosts(userId: Long)
+
+POST    /like                      controllers.PostController.likePost
+POST    /dislike                   controllers.PostController.dislikePost
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file              controllers.Assets.versioned(path="/public", file: Asset)
